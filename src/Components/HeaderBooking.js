@@ -4,7 +4,7 @@ function Header() {
     return(
         <header>
             <img src={ Logo } alt="Logo" class="headerImg"></img>
-            <h1>Welcome to Little Lemon</h1>
+            <h1>Book a table at our restaurant! 🍋📅</h1>
         </header>
     );
 }

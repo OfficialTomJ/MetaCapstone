@@ -17,6 +17,11 @@ code {
   flex-direction: column;
   align-items: center;
 }
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 .headerImg {
   max-width: 400px;
@@ -34,4 +39,27 @@ a {
 }
 span {
   font-family: 'Inter', sans-serif;
+}
+#navBar {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none; /* Remove bullets */
+  padding: 0; /* Remove padding */
+  margin: 0; /* Remove margins */
+  gap: 50px;
+}
+#navBar > li {
+  border: 4px solid #9046CF;
+  padding: 20px;
+  background-color: #FDE12D;
+  font-weight: 800;
+}
+li > a {
+  text-decoration: none;
+  color: black;
+}
+form {
+  display: grid;
+  max-width: 200px;
+  gap: 20px;
 }
