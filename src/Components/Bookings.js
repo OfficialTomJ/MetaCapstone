@@ -7,6 +7,13 @@ function Bookings(props) {
     const [formGuests, setFormGuests] = useState(4);
     const [formOccasion, setFormOccasion] = useState("Birthday");
 
+    let allData = {
+        date: formDate,
+        time: formTime,
+        guests: formGuests,
+        occasion: formOccasion
+    }
+
     const handleChange = event => {
         let ID = event.target.id;
         let val = event.target.value;
@@ -17,7 +24,7 @@ function Bookings(props) {
             let date = new Date(val);
 
             //Update times in field
-            props.dispatch();
+            props.dispatch(date);
 
             // Get year, month, and day part from the date
             var year = date.toLocaleString("default", { year: "numeric" });
@@ -39,6 +46,11 @@ function Bookings(props) {
         }
     };
 
+    function submit(event) {
+        event.preventDefault();
+        props.submitForm(allData);
+    }
+
     return(
     <main>
         <form>
@@ -59,7 +71,7 @@ function Bookings(props) {
                 <option>Birthday</option>
                 <option>Anniversary</option>
             </select>
-            <input type="submit" value="Make Your reservation"/>
+            <input type="submit" value="Make Your reservation" onClick={ submit }/>
          </form>
     </main>
     );

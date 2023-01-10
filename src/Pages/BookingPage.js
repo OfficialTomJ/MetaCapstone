@@ -1,9 +1,12 @@
 import React, { useState, useReducer, useEffect } from "react";
+import { useNavigate } from 'react-router-dom';
 
 import Header from '../Components/HeaderBooking';
 import Bookings from '../Components/Bookings';
 
 function BookingPage() {
+
+    const navigate = useNavigate();
 
     const seededRandom = function (seed) {
     var m = 2**35 - 31;
@@ -42,14 +45,16 @@ function BookingPage() {
         return fetchAPI(new Date());
     }
     
-    useEffect(() => {
-        
-    }, []);
+    function submitForm(data) {
+        if (submitAPI(data)) {
+            navigate('/confirmed');
+        }
+    }
 
     return(
         <>
         <Header></Header>
-        <Bookings availableTimes={availableTimes} dispatch={ dispatch }></Bookings>
+        <Bookings availableTimes={availableTimes} dispatch={ dispatch } submitForm={ submitForm }></Bookings>
         </>
     );
 }
