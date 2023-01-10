@@ -12,11 +12,12 @@ function Bookings(props) {
         let val = event.target.value;
         //Check which field was updated
         if (ID === "res-date") {
+
+
+            let date = new Date(val);
+
             //Update times in field
             props.dispatch();
-
-
-            var date = new Date(val);
 
             // Get year, month, and day part from the date
             var year = date.toLocaleString("default", { year: "numeric" });
